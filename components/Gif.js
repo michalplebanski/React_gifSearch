@@ -3,6 +3,9 @@ var styles = {
 	minHeight: '310px',
 	margin: '0.5em'
 };
+var aStyle = {
+	display: 'none'
+};
 
 Gif = React.createClass({
 	getUrl: function() {
@@ -11,10 +14,13 @@ Gif = React.createClass({
 
 	render: function() {
 		var url = this.props.loading ? GIPHY_LOADING_URL : this.props.url;
+		if (this.props.loading)	{
+			aStyle = {};
+		}
 
 		return(
 			<div style={styles}>
-				<a href={this.getUrl()} title='view this on gimphy' target='new'>
+				<a href={this.getUrl()} title='view this on gimphy' target='new' style={aStyle}>
 					<img id='gif' src={url} style={{width: '100%', maxWidth: '350px'}} />
 				</a>
 			</div>
