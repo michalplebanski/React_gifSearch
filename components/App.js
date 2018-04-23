@@ -23,30 +23,30 @@ App = React.createClass({
 
 	getGif: function(searchingText) {
 		return new Promise (
-				(resolve, reject) => {
-					const GIPHY_PUB_KEY = 'qYJUoExqhocza5OQXzJpzFgXT2AxuaGW';
+			(resolve, reject) => {
+				const GIPHY_PUB_KEY = 'qYJUoExqhocza5OQXzJpzFgXT2AxuaGW';
         			const GIPHY_API_URL = 'https://api.giphy.com';
-					let url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
-					let xhr = new XMLHttpRequest();
-					xhr.open('GET', url);
-					xhr.onload = function() {
-						if (xhr.status === 200) {
-							let data = JSON.parse(xhr.responseText).data;
-							let gif = {
-								url: data.fixed_width_downsampled_url,
-								sourceUrl: data.url
-							};
-							resolve(gif);
-						}
-						reject(new Error(this.statusText));
-					};
-					xhr.onerror = function () {
-						reject(new Error(`Error: ${this.statusText}`));
-					};
-					xhr.send();
-				}		
-			);
-		},
+				let url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
+				let xhr = new XMLHttpRequest();
+				xhr.open('GET', url);
+				xhr.onload = function() {
+					if (xhr.status === 200) {
+						let data = JSON.parse(xhr.responseText).data;
+						let gif = {
+							url: data.fixed_width_downsampled_url,
+							sourceUrl: data.url
+						};
+						resolve(gif);
+					}
+					reject(new Error(this.statusText));
+				};
+				xhr.onerror = function () {
+					reject(new Error(`Error: ${this.statusText}`));
+				};
+				xhr.send();
+			}		
+		);
+	},
 
 	render: function() {
 
