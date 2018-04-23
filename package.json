@@ -1,5 +1,4 @@
-{
-  "name": "wyszukiwarka_gifow",
+name": "wyszukiwarka_gifow",
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
@@ -7,10 +6,20 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michalplebanski/React_gifSearch.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michalplebanski/React_gifSearch/issues"
+  },
+  "homepage": "https://github.com/michalplebanski/React_gifSearch#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
     "http-server": "^0.11.1"
   }
 }
